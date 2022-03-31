@@ -1,0 +1,6 @@
+{
+  "name": "proutils.dev",
+  "image": "node:16",
+  "remoteUser": "node",
+  "extensions": ["esbenp.prettier-vscode"]
+}
