@@ -2,5 +2,5 @@
   "name": "proutils.dev",
   "image": "node:16",
   "remoteUser": "node",
-  "extensions": ["esbenp.prettier-vscode"]
+  "extensions": ["esbenp.prettier-vscode", "svelte.svelte-vscode"]
 }
