@@ -1,19 +1,33 @@
 <script lang="ts">
-  let raw = '';
-  let encoded = '';
+  import TextareaClipboard from '$lib/TextareaClipboard.svelte';
 
-  function setRaw(event) {
-    const input = event.target!.value;
-    raw = input;
-    encoded = btoa(input);
-  }
+  let encode = true;
+  let input = '';
+  let output = '';
+  let error = '';
 
-  function setEncoded(event) {
-    const input = event.target.value;
-    encoded = input;
-    raw = atob(input);
+  $: {
+    try {
+      output = encode ? btoa(input) : atob(input);
+      error = '';
+    } catch {
+      output = '';
+      error = 'Error decoding. Encode instead?';
+    }
   }
 </script>
 
-<textarea on:input={setRaw}>{raw}</textarea>
-<textarea on:input={setEncoded}>{encoded}</textarea>
+<h1>Base64</h1>
+<label>
+  <input type="radio" bind:group={encode} name="encode" value={true} />
+  Encode
+</label>
+<label>
+  <input type="radio" bind:group={encode} name="encode" value={false} />
+  Decode
+</label>
+<TextareaClipboard bind:value={input} />
+<TextareaClipboard bind:value={output} readonly={true} />
+{#if error}
+  <p>{error}</p>
+{/if}

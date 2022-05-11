@@ -1,0 +1,135 @@
+/* Reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Base */
+
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url('/SourceSans3-VariableFont_wght.ttf') format('woff2-variations');
+  font-weight: 200 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url('/SourceCodePro-Italic-VariableFont_wght.ttf')
+    format('woff2-variations');
+  font-weight: 200 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('/SourceCodePro-VariableFont_wght.ttf') format('woff2-variations');
+  font-weight: 200 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('/SourceCodePro-Italic-VariableFont_wght.ttf')
+    format('woff2-variations');
+  font-weight: 200 900;
+  font-style: italic;
+}
+
+html {
+  --ratio: 0.75;
+  --size-regular: 1rem;
+
+  --size-small-1: calc(var(--size-regular) * var(--ratio));
+  --size-small-2: calc(var(--size-small-1) * var(--ratio));
+  --size-small-3: calc(var(--size-small-2) * var(--ratio));
+  --size-small-4: calc(var(--size-small-3) * var(--ratio));
+  --size-small-5: calc(var(--size-small-4) * var(--ratio));
+  --size-small-6: calc(var(--size-small-5) * var(--ratio));
+  --size-small-7: calc(var(--size-small-6) * var(--ratio));
+
+  --size-large-1: calc(var(--size-regular) / var(--ratio));
+  --size-large-2: calc(var(--size-large-1) / var(--ratio));
+  --size-large-3: calc(var(--size-large-2) / var(--ratio));
+  --size-large-4: calc(var(--size-large-3) / var(--ratio));
+  --size-large-5: calc(var(--size-large-4) / var(--ratio));
+  --size-large-6: calc(var(--size-large-5) / var(--ratio));
+  --size-large-7: calc(var(--size-large-6) / var(--ratio));
+  --size-large-8: calc(var(--size-large-7) / var(--ratio));
+  --size-large-9: calc(var(--size-large-8) / var(--ratio));
+  --size-large-10: calc(var(--size-large-9) / var(--ratio));
+
+  --size-border-radius-large: var(--size-small-5);
+  --size-border-radius: var(--size-small-7);
+  --size-border-width: 1px;
+  --size-letter-spacing-wide: 1px;
+
+  font-size: 12pt;
+  line-height: calc(1 / var(--ratio));
+
+  background-color: var(--gray-20);
+  color: var(--gray-90);
+  font-family: 'Source Sans 3';
+}
+
+input,
+textarea {
+  font-family: 'Source Code Pro';
+}
+
+/* Theme */
+
+html {
+  --gray-00: #001523;
+  --gray-00-56: #00152390;
+  --gray-00-75: #001523c0;
+  --gray-10: #081d2a;
+  --gray-20: #102431;
+  --gray-30: #20323f;
+  --gray-40: #3f4f5a;
+  --gray-50: #7e8991;
+  --gray-60: #bdc3c8;
+  --gray-70: #dce0e4;
+  --gray-80: #eceff2;
+  --gray-90: #fbfdff;
+  --gray-90-18: #fbfdff2e;
+  --gray-90-25: #fbfdff40;
+  --gray-90-75: #fbfdffc0;
+
+  --brand-primary: #7d53de;
+  --brand-primary-dark: #612fd7;
+  --brand-secondary: #34f6f2;
+  --brand-tertiary: #78e3fd;
+  --brand-quaternary: #fc6dab;
+}
