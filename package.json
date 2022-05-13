@@ -32,6 +32,6 @@
   },
   "type": "module",
   "dependencies": {
-    "fuse.js": "^6.5.3"
+    "fuzzysort": "^1.9.0"
   }
 }

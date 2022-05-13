@@ -80,27 +80,24 @@
       ],
     },
   ];
+
+  const searchTargets = categories.reduce<FlatTool[]>(
+    (acc, { title, tools }) =>
+      acc.concat(tools.map((tool) => ({ ...tool, category: title }))),
+    [],
+  );
 </script>
 
 <script lang="ts">
-  import Fuse from 'fuse.js';
+  import fuzzysort from 'fuzzysort';
   import ToolLink from '$lib/ToolLink.svelte';
   import Logo from '$lib/Logo.svelte';
+  import { DELIMITER } from '$lib/Highlight.svelte';
 
   let filterString = '';
 
-  const fuse = new Fuse(
-    categories.reduce<FlatTool[]>(
-      (acc, { title, tools }) =>
-        acc.concat(tools.map((tool) => ({ ...tool, category: title }))),
-      [],
-    ),
-    {
-      keys: ['title'],
-    },
-  );
-
-  $: result = filterString ? fuse.search(filterString) : [];
+  let result: Fuzzysort.KeyResults<FlatTool>;
+  $: result = fuzzysort.go(filterString, searchTargets, { key: 'title' });
 </script>
 
 <div class="container">
@@ -114,12 +111,13 @@
     />
     {#if result.length}
       <div class="group">
-        {#each result as tool (tool.item.url)}
+        {#each result as tool (tool.obj.url)}
           <ToolLink
-            href={tool.item.url}
-            title={tool.item.title}
-            subtitle={tool.item.category}
-            icon={tool.item.icon}
+            href={tool.obj.url}
+            title={fuzzysort.highlight(tool, DELIMITER, DELIMITER) ||
+              tool.obj.title}
+            subtitle={tool.obj.category}
+            icon={tool.obj.icon}
           />
         {/each}
       </div>

@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import TextIcon from './TextIcon.svelte';
+  import Highlight from './Highlight.svelte';
 
   export let href: string;
   export let title: string;
@@ -13,7 +14,7 @@
 <a class="tool" class:current {href}>
   <TextIcon text={icon} />
   <span class="title">
-    {title}
+    <Highlight text={title} />
     {#if subtitle}
       <span class="subtitle">{subtitle}</span>
     {/if}
