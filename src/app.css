@@ -67,7 +67,8 @@ select {
   font-style: italic;
 }
 
-html {
+html,
+body {
   --ratio: 0.75;
   --size-regular: 1rem;
 
@@ -101,6 +102,9 @@ html {
   background-color: var(--gray-20);
   color: var(--gray-90);
   font-family: 'Source Sans 3';
+
+  min-height: 100%;
+  height: 100%;
 }
 
 input,

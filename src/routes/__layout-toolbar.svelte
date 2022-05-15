@@ -149,6 +149,7 @@
     gap: var(--size-small-1);
     background-color: var(--gray-00);
     padding: var(--size-small-1);
+    overflow-y: scroll;
   }
   .home {
     text-align: center;
