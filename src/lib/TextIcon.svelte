@@ -9,9 +9,9 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: var(--size-large-1);
-    height: var(--size-large-1);
-    font-size: var(--size-small-2);
+    width: var(--scale-5);
+    height: var(--scale-5);
+    font-size: var(--scale-2-5);
     background-image: linear-gradient(
       to bottom,
       var(--gray-90-25),

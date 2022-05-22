@@ -1,33 +1,69 @@
 <script lang="ts">
-  import TextareaClipboard from '$lib/TextareaClipboard.svelte';
+  import TextField from '$lib/TextField.svelte';
 
-  let encode = true;
-  let input = '';
-  let output = '';
-  let error = '';
+  let decoded = '';
+  let encoded = '';
+  let encodedWarning = '';
 
-  $: {
+  function onDecodedInput(value: string) {
+    decoded = value;
+    encoded = btoa(value);
+    encodedWarning = '';
+  }
+
+  function onEncodedInput(value: string) {
     try {
-      output = encode ? btoa(input) : atob(input);
-      error = '';
-    } catch {
-      output = '';
-      error = 'Error decoding. Encode instead?';
+      encoded = value;
+      decoded = atob(value);
+      encodedWarning = '';
+    } catch (err) {
+      decoded = '';
+      encodedWarning = "That doesn't look like base64 data.";
     }
   }
+
+  $: encodedWarningAction = encodedWarning
+    ? {
+        text: 'Encode instead',
+        action: () => {
+          decoded = encoded;
+          onDecodedInput(decoded);
+        },
+      }
+    : null;
 </script>
 
-<h1>Base64</h1>
-<label>
-  <input type="radio" bind:group={encode} name="encode" value={true} />
-  Encode
-</label>
-<label>
-  <input type="radio" bind:group={encode} name="encode" value={false} />
-  Decode
-</label>
-<TextareaClipboard bind:value={input} />
-<TextareaClipboard bind:value={output} readonly={true} />
-{#if error}
-  <p>{error}</p>
-{/if}
+<div class="layout">
+  <header>
+    <h1>Base64</h1>
+    <p>Quickly and easily encode or decode base64 data.</p>
+  </header>
+  <TextField
+    multiline
+    placeholder="Decoded data..."
+    value={decoded}
+    onInput={onDecodedInput}
+  />
+  <TextField
+    multiline
+    placeholder="Encoded data..."
+    bind:value={encoded}
+    onInput={onEncodedInput}
+    warning={encodedWarning}
+    warningAction={encodedWarningAction}
+  />
+</div>
+
+<style>
+  .layout {
+    height: 100%;
+    padding: var(--scale-4);
+    display: grid;
+    gap: var(--scale-4);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+  }
+  header {
+    grid-column: 1 / 3;
+  }
+</style>

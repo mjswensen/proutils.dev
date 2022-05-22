@@ -140,15 +140,15 @@
 <style>
   .container {
     display: grid;
-    grid-template-columns: var(--size-large-10) 1fr;
+    grid-template-columns: var(--scale-72) 1fr;
     height: 100%;
   }
   .sidebar {
     display: flex;
     flex-direction: column;
-    gap: var(--size-small-1);
+    gap: var(--scale-3);
     background-color: var(--gray-00);
-    padding: var(--size-small-1);
+    padding: var(--scale-3);
     overflow-y: scroll;
   }
   .home {
@@ -159,7 +159,7 @@
     color: var(--gray-90);
     border: var(--size-border-width) solid var(--gray-40);
     border-radius: var(--size-border-radius);
-    padding: var(--size-small-6) var(--size-small-3);
+    padding: var(--scale-1) var(--scale-2);
   }
   .filter::placeholder {
     color: var(--gray-90-75);
@@ -171,10 +171,10 @@
   }
   .category-heading {
     display: inline-block;
-    font-size: var(--size-small-1);
+    font-size: var(--scale-3);
     text-transform: uppercase;
     letter-spacing: var(--size-letter-spacing-wide);
-    padding: var(--size-small-6) var(--size-small-3);
+    padding: var(--scale-1) var(--scale-2);
     color: var(--gray-90-75);
   }
 </style>

@@ -35,6 +35,10 @@ select {
   font: inherit;
 }
 
+textarea {
+  resize: none;
+}
+
 /* Base */
 
 @font-face {
@@ -46,7 +50,7 @@ select {
 
 @font-face {
   font-family: 'Source Sans 3';
-  src: url('/SourceCodePro-Italic-VariableFont_wght.ttf')
+  src: url('/SourceSans3-Italic-VariableFont_wght.ttf')
     format('woff2-variations');
   font-weight: 200 900;
   font-style: italic;
@@ -69,35 +73,50 @@ select {
 
 html,
 body {
-  --ratio: 0.75;
-  --size-regular: 1rem;
+  --scale-0-25: calc(var(--scale-1) * 0.25);
+  --scale-0-5: calc(var(--scale-1) * 0.5);
+  --scale-1: 4px;
+  --scale-1-5: calc(var(--scale-1) * 1.5);
+  --scale-2: calc(var(--scale-1) * 2);
+  --scale-2-5: calc(var(--scale-1) * 2.5);
+  --scale-3: calc(var(--scale-1) * 3);
+  --scale-3-5: calc(var(--scale-1) * 3.5);
+  --scale-4: calc(var(--scale-1) * 4);
+  --scale-5: calc(var(--scale-1) * 5);
+  --scale-6: calc(var(--scale-1) * 6);
+  --scale-7: calc(var(--scale-1) * 7);
+  --scale-8: calc(var(--scale-1) * 8);
+  --scale-9: calc(var(--scale-1) * 9);
+  --scale-10: calc(var(--scale-1) * 10);
+  --scale-11: calc(var(--scale-1) * 11);
+  --scale-12: calc(var(--scale-1) * 12);
+  --scale-14: calc(var(--scale-1) * 14);
+  --scale-16: calc(var(--scale-1) * 16);
+  --scale-20: calc(var(--scale-1) * 20);
+  --scale-24: calc(var(--scale-1) * 24);
+  --scale-28: calc(var(--scale-1) * 28);
+  --scale-32: calc(var(--scale-1) * 32);
+  --scale-36: calc(var(--scale-1) * 36);
+  --scale-40: calc(var(--scale-1) * 40);
+  --scale-44: calc(var(--scale-1) * 44);
+  --scale-48: calc(var(--scale-1) * 48);
+  --scale-52: calc(var(--scale-1) * 52);
+  --scale-56: calc(var(--scale-1) * 56);
+  --scale-60: calc(var(--scale-1) * 60);
+  --scale-64: calc(var(--scale-1) * 64);
+  --scale-72: calc(var(--scale-1) * 72);
+  --scale-80: calc(var(--scale-1) * 80);
+  --scale-96: calc(var(--scale-1) * 96);
 
-  --size-small-1: calc(var(--size-regular) * var(--ratio));
-  --size-small-2: calc(var(--size-small-1) * var(--ratio));
-  --size-small-3: calc(var(--size-small-2) * var(--ratio));
-  --size-small-4: calc(var(--size-small-3) * var(--ratio));
-  --size-small-5: calc(var(--size-small-4) * var(--ratio));
-  --size-small-6: calc(var(--size-small-5) * var(--ratio));
-  --size-small-7: calc(var(--size-small-6) * var(--ratio));
+  --size-border-radius-large: var(--scale-1);
+  --size-border-radius: var(--scale-0-5);
+  --size-border-width: var(--scale-0-25);
+  --size-letter-spacing-wide: var(--scale-0-25);
 
-  --size-large-1: calc(var(--size-regular) / var(--ratio));
-  --size-large-2: calc(var(--size-large-1) / var(--ratio));
-  --size-large-3: calc(var(--size-large-2) / var(--ratio));
-  --size-large-4: calc(var(--size-large-3) / var(--ratio));
-  --size-large-5: calc(var(--size-large-4) / var(--ratio));
-  --size-large-6: calc(var(--size-large-5) / var(--ratio));
-  --size-large-7: calc(var(--size-large-6) / var(--ratio));
-  --size-large-8: calc(var(--size-large-7) / var(--ratio));
-  --size-large-9: calc(var(--size-large-8) / var(--ratio));
-  --size-large-10: calc(var(--size-large-9) / var(--ratio));
+  --duration: 100ms;
 
-  --size-border-radius-large: var(--size-small-5);
-  --size-border-radius: var(--size-small-7);
-  --size-border-width: 1px;
-  --size-letter-spacing-wide: 1px;
-
-  font-size: 12pt;
-  line-height: calc(1 / var(--ratio));
+  font-size: var(--scale-4);
+  line-height: 1.25;
 
   background-color: var(--gray-20);
   color: var(--gray-90);
@@ -112,6 +131,10 @@ textarea {
   font-family: 'Source Code Pro';
 }
 
+button {
+  cursor: pointer;
+}
+
 /* Theme */
 
 html {
@@ -121,6 +144,7 @@ html {
   --gray-10: #081d2a;
   --gray-20: #102431;
   --gray-30: #20323f;
+  --gray-35: #30414d;
   --gray-40: #3f4f5a;
   --gray-50: #7e8991;
   --gray-60: #bdc3c8;
@@ -137,4 +161,7 @@ html {
   --brand-secondary-18: #34f6f22e;
   --brand-tertiary: #78e3fd;
   --brand-quaternary: #fc6dab;
+
+  --yellow-dark: #784f05;
+  --yellow-light: #fef4e1;
 }

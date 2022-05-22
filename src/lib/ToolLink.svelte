@@ -24,34 +24,34 @@
 <style>
   .tool {
     border-radius: var(--size-border-radius);
-    padding: var(--size-small-3);
+    padding: var(--scale-1-5);
     text-decoration: none;
     color: var(--gray-90);
     display: flex;
     align-items: center;
-    gap: var(--size-small-3);
+    gap: var(--scale-1-5);
   }
   .tool:hover {
     background-image: linear-gradient(
       to right,
       var(--gray-10),
-      var(--gray-20) var(--size-small-3)
+      var(--gray-20) var(--scale-2)
     );
   }
   .tool.current {
     background-image: linear-gradient(
       to right,
       var(--brand-primary-dark),
-      var(--brand-primary) var(--size-large-3)
+      var(--brand-primary) var(--scale-9)
     );
   }
   .title {
     display: flex;
     align-items: baseline;
-    gap: var(--size-small-2);
+    gap: var(--scale-2-5);
   }
   .subtitle {
-    font-size: var(--size-small-1);
+    font-size: var(--scale-3);
     text-transform: uppercase;
     letter-spacing: var(--size-letter-spacing-wide);
     color: var(--gray-90-75);
