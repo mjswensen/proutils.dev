@@ -102,7 +102,7 @@
 
 <div class="container">
   <nav class="sidebar">
-    <a class="home" href="/"><Logo size={38} /></a>
+    <a class="home" href="/"><Logo small /></a>
     <input
       class="filter"
       type="search"
@@ -153,6 +153,8 @@
   }
   .home {
     text-align: center;
+    text-decoration: none;
+    color: var(--gray-90);
   }
   .filter {
     background-color: var(--gray-00);
