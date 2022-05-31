@@ -116,6 +116,8 @@
       acc.concat(tools.map((tool) => ({ ...tool, category: title }))),
     [],
   );
+
+  const version = __APP_VERSION__;
 </script>
 
 <script lang="ts">
@@ -139,28 +141,31 @@
       placeholder="Filter..."
       bind:value={filterString}
     />
-    {#if result.length}
-      <div class="group">
-        {#each result as tool (tool.obj.url)}
-          <ToolLink
-            href={tool.obj.url}
-            title={fuzzysort.highlight(tool, DELIMITER, DELIMITER) ||
-              tool.obj.title}
-            subtitle={tool.obj.category}
-            icon={tool.obj.icon}
-          />
-        {/each}
-      </div>
-    {:else}
-      {#each categories as category}
+    <div class="groups">
+      {#if result.length}
         <div class="group">
-          <span class="category-heading">{category.title}</span>
-          {#each category.tools as tool}
-            <ToolLink href={tool.url} title={tool.title} icon={tool.icon} />
+          {#each result as tool (tool.obj.url)}
+            <ToolLink
+              href={tool.obj.url}
+              title={fuzzysort.highlight(tool, DELIMITER, DELIMITER) ||
+                tool.obj.title}
+              subtitle={tool.obj.category}
+              icon={tool.obj.icon}
+            />
           {/each}
         </div>
-      {/each}
-    {/if}
+      {:else}
+        {#each categories as category}
+          <div class="group">
+            <span class="category-heading">{category.title}</span>
+            {#each category.tools as tool}
+              <ToolLink href={tool.url} title={tool.title} icon={tool.icon} />
+            {/each}
+          </div>
+        {/each}
+      {/if}
+    </div>
+    <footer>Version {version}</footer>
   </nav>
   <main>
     <slot />
@@ -174,12 +179,12 @@
     height: 100%;
   }
   .sidebar {
+    min-height: 0;
     display: flex;
     flex-direction: column;
     gap: var(--scale-3);
     background-color: var(--gray-00);
     padding: var(--scale-3);
-    overflow-y: scroll;
   }
   .home {
     text-align: center;
@@ -197,6 +202,13 @@
     color: var(--gray-90-75);
     font-style: italic;
   }
+  .groups {
+    display: flex;
+    flex-direction: column;
+    gap: var(--scale-3);
+    overflow-y: scroll;
+    flex: 1;
+  }
   .group {
     display: flex;
     flex-direction: column;
@@ -208,5 +220,10 @@
     letter-spacing: var(--size-letter-spacing-wide);
     padding: var(--scale-1) var(--scale-2);
     color: var(--gray-90-75);
+  }
+  .sidebar footer {
+    text-align: center;
+    font-size: var(--scale-3);
+    color: var(--gray-50);
   }
 </style>
