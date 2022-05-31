@@ -5,31 +5,6 @@
 
   const categories: Category[] = [
     {
-      title: 'Encode / Decode',
-      tools: [
-        {
-          url: '/tools/encode-decode/base64',
-          title: 'Base 64',
-          icon: '64',
-        },
-        {
-          url: '/tools/encode-decode/html-entity',
-          title: 'HTML Entity',
-          icon: '&;',
-        },
-        {
-          url: '/tools/encode-decode/url',
-          title: 'URL',
-          icon: '%',
-        },
-        {
-          url: '/tools/encode-decode/jwt',
-          title: 'JWT',
-          icon: 'J',
-        },
-      ],
-    },
-    {
       title: 'Convert',
       tools: [
         {
@@ -60,12 +35,57 @@
       ],
     },
     {
-      title: 'Transform',
+      title: 'Encode / Decode',
       tools: [
         {
-          url: '/tools/transform/json',
-          title: 'JSON',
-          icon: '{}',
+          url: '/tools/encode-decode/base64',
+          title: 'Base 64',
+          icon: '64',
+        },
+        {
+          url: '/tools/encode-decode/html-entity',
+          title: 'HTML Entity',
+          icon: '&;',
+        },
+        {
+          url: '/tools/encode-decode/jwt',
+          title: 'JWT',
+          icon: 'J',
+        },
+        {
+          url: '/tools/encode-decode/url',
+          title: 'URL',
+          icon: '%',
+        },
+      ],
+    },
+    {
+      title: 'Format',
+      tools: [
+        {
+          url: '/tools/format/css',
+          title: 'CSS',
+          icon: 'h1',
+        },
+        {
+          url: '/tools/format/html',
+          title: 'HTML',
+          icon: '</>',
+        },
+        {
+          url: '/tools/format/javascript',
+          title: 'JavaScript',
+          icon: 'JS',
+        },
+      ],
+    },
+    {
+      title: 'Inspect',
+      tools: [
+        {
+          url: '/tools/inspect/diff',
+          title: 'Diff',
+          icon: '+/-',
         },
       ],
     },
@@ -76,6 +96,16 @@
           url: '/tools/parse/url',
           title: 'URL',
           icon: '://',
+        },
+      ],
+    },
+    {
+      title: 'Transform',
+      tools: [
+        {
+          url: '/tools/transform/json',
+          title: 'JSON',
+          icon: '{}',
         },
       ],
     },
