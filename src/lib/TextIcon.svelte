@@ -21,5 +21,6 @@
     border: var(--size-border-width) solid var(--gray-90-25);
     backdrop-filter: blur(4px);
     box-shadow: 0 1px 3px var(--gray-00-56);
+    letter-spacing: 0.04em;
   }
 </style>
