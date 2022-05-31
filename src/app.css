@@ -135,6 +135,16 @@ button {
   cursor: pointer;
 }
 
+a:link,
+a:visited {
+  color: var(--brand-tertiary);
+}
+
+a:hover,
+a:active {
+  color: var(--brand-secondary);
+}
+
 /* Theme */
 
 html {
@@ -162,6 +172,19 @@ html {
   --brand-tertiary: #78e3fd;
   --brand-quaternary: #fc6dab;
 
+  --green-dark: #3b6d52;
+  --green-light: #cce3d7;
+  --green-light-25: #cce3d740;
+
+  --red-dark: #7f2f2d;
+  --red-light: #f0d5d4;
+  --red-light-25: #f0d5d440;
+
   --yellow-dark: #784f05;
   --yellow-light: #fef4e1;
+  --yellow-light-25: #fef4e140;
+
+  --blue-dark: #005473;
+  --blue-light: #ebfaff;
+  --blue-light-25: #ebfaff40;
 }
