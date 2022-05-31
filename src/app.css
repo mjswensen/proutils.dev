@@ -111,6 +111,7 @@ body {
   --size-border-radius-large: var(--scale-1);
   --size-border-radius: var(--scale-0-5);
   --size-border-width: var(--scale-0-25);
+  --size-focus-outline-width: var(--scale-0-5);
   --size-letter-spacing-wide: var(--scale-0-25);
 
   --duration: 100ms;
@@ -143,6 +144,11 @@ a:visited {
 a:hover,
 a:active {
   color: var(--brand-secondary);
+}
+
+*:focus {
+  outline: var(--gray-90-25) solid var(--size-focus-outline-width);
+  outline-offset: var(--scale-0-5);
 }
 
 /* Theme */
