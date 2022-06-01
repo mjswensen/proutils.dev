@@ -4,6 +4,10 @@
 
 <section>
   <Logo />
+  <p>
+    The utility belt for daily development tasks. Pick a tool on the left to get
+    started.
+  </p>
 </section>
 
 <style>
