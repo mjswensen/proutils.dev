@@ -5,6 +5,7 @@
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
 >
+  <title>Paste</title>
   <path
     d="M4.5 1.5h-1a2 2 0 0 0-2 2v10c0 1.1.9 2 2 2h9a2 2 0 0 0 2-2v-10a2 2 0 0 0-2-2h-1"
     stroke="currentColor"
