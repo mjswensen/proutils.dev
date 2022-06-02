@@ -44,14 +44,18 @@
     </p>
   </header>
   <TextField
+    id="url-decoded"
+    label="Decoded data"
     multiline
-    placeholder="Decoded data..."
+    placeholder="Decoded..."
     value={decoded}
     onInput={onDecodedInput}
   />
   <TextField
+    id="url-encoded"
+    label="Encoded data"
     multiline
-    placeholder="Encoded data..."
+    placeholder="Encoded..."
     bind:value={encoded}
     onInput={onEncodedInput}
     warning={encodedWarning}

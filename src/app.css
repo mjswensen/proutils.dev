@@ -84,6 +84,7 @@ body {
   --scale-4: calc(var(--scale-1) * 4);
   --scale-5: calc(var(--scale-1) * 5);
   --scale-6: calc(var(--scale-1) * 6);
+  --scale-6-5: calc(var(--scale-1) * 6.5);
   --scale-7: calc(var(--scale-1) * 7);
   --scale-8: calc(var(--scale-1) * 8);
   --scale-9: calc(var(--scale-1) * 9);

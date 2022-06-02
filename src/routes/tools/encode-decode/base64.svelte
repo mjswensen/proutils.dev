@@ -39,14 +39,18 @@
     <p>Quickly and easily encode or decode base64 data.</p>
   </header>
   <TextField
+    id="base64-decoded"
+    label="Decoded data"
     multiline
-    placeholder="Decoded data..."
+    placeholder="Decoded..."
     value={decoded}
     onInput={onDecodedInput}
   />
   <TextField
+    id="base64-encoded"
+    label="Encoded data"
     multiline
-    placeholder="Encoded data..."
+    placeholder="Encoded..."
     bind:value={encoded}
     onInput={onEncodedInput}
     warning={encodedWarning}

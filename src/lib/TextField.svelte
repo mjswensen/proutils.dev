@@ -3,6 +3,8 @@
   import Copy from './icons/Copy.svelte';
   import Paste from './icons/Paste.svelte';
 
+  export let id: string;
+  export let label: string;
   export let placeholder: string;
   export let value: string;
   export let onInput: (value: string) => void;
@@ -24,30 +26,28 @@
   }
 </script>
 
-<div class="container">
+<div class="container" class:warning>
+  {#if label}
+    <label for={id}>{label}</label>
+  {/if}
   {#if multiline}
     <textarea
+      {id}
       {placeholder}
-      class:warning-state={!!warning}
       on:input={(evt) => {
         onInput(evt.currentTarget.value);
       }}
       {value}
     />
   {:else}
-    <input
-      type="text"
-      class:warning-state={!!warning}
-      {placeholder}
-      bind:value
-    />
+    <input {id} type="text" {placeholder} bind:value />
   {/if}
   <span class="button-group">
     <button class="clipboard-button" on:click={paste}><Paste /></button>
     <button class="clipboard-button" on:click={copy}><Copy /></button>
   </span>
   {#if warning}
-    <span class="warning" transition:slide={{ duration: 100 }}>
+    <span class="warning-message" transition:slide={{ duration: 100 }}>
       {warning}
       {#if warningAction}
         <button class="warning-action" on:click={warningAction.action}>
@@ -64,6 +64,16 @@
     display: flex;
     flex-direction: column;
   }
+  label {
+    font-size: var(--scale-3);
+    font-weight: bold;
+    padding: var(--scale-0-5) var(--scale-2-5);
+    color: var(--gray-80);
+    transition: color var(--duration) ease-in-out;
+  }
+  .container.warning label {
+    color: var(--yellow-light);
+  }
   input,
   textarea {
     width: 100%;
@@ -77,8 +87,8 @@
     transition: border-color var(--duration) ease-in-out;
     z-index: 2;
   }
-  input.warning-state,
-  textarea.warning-state {
+  .container.warning input,
+  .container.warning textarea {
     border-color: var(--yellow-dark);
   }
   input::placeholder,
@@ -88,7 +98,7 @@
   }
   .button-group {
     position: absolute;
-    top: var(--scale-1-5);
+    top: var(--scale-6-5);
     right: var(--scale-1-5);
     display: flex;
     gap: var(--scale-1-5);
@@ -111,7 +121,7 @@
   .clipboard-button:active {
     color: var(--gray-90-75);
   }
-  span.warning {
+  span.warning-message {
     display: flex;
     gap: var(--scale-1);
     --overlap: var(--scale-1);
