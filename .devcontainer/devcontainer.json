@@ -1,6 +1,6 @@
 {
   "name": "proutils.dev",
-  "image": "node:16",
+  "image": "node:19",
   "remoteUser": "node",
   "extensions": ["esbenp.prettier-vscode", "svelte.svelte-vscode"],
   "onCreateCommand": "npm install"

@@ -1,36 +1,36 @@
 <script lang="ts">
-  import TextField from '$lib/TextField.svelte';
+  import TextField, { type ValidationMessage } from '$lib/TextField.svelte';
 
   let decoded = '';
   let encoded = '';
-  let encodedWarning = '';
+  let encodedValidation: ValidationMessage | null = null;
 
   function onDecodedInput(value: string) {
     decoded = value;
     encoded = btoa(value);
-    encodedWarning = '';
+    encodedValidation = null;
   }
 
   function onEncodedInput(value: string) {
     try {
       encoded = value;
       decoded = atob(value);
-      encodedWarning = '';
+      encodedValidation = null;
     } catch (err) {
       decoded = '';
-      encodedWarning = "That doesn't look like base64 data.";
+      encodedValidation = {
+        type: 'warning',
+        text: "That doesn't look like base64 data.",
+        action: {
+          text: 'Encode instead',
+          fn: () => {
+            decoded = encoded;
+            onDecodedInput(decoded);
+          },
+        },
+      };
     }
   }
-
-  $: encodedWarningAction = encodedWarning
-    ? {
-        text: 'Encode instead',
-        action: () => {
-          decoded = encoded;
-          onDecodedInput(decoded);
-        },
-      }
-    : null;
 </script>
 
 <div class="layout">
@@ -53,8 +53,7 @@
     placeholder="Encoded..."
     bind:value={encoded}
     onInput={onEncodedInput}
-    warning={encodedWarning}
-    warningAction={encodedWarningAction}
+    validationMessage={encodedValidation}
   />
 </div>
 

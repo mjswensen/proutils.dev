@@ -32,6 +32,7 @@
   },
   "type": "module",
   "dependencies": {
-    "fuzzysort": "^1.9.0"
+    "fuzzysort": "^1.9.0",
+    "jose": "^4.8.1"
   }
 }
